@@ -1,9 +1,127 @@
 ﻿@using ElisStore.Common
-@{
-    this.ViewData["Title"] = "Home Page";
-}
+@{ this.ViewData["Title"] = "Home Page"; }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <partial name="_Carousel" />
+</div>
+
+<div class="container text-center">
+    <h3 class="m-4 align-middle">Препоръчани продукти</h3>
+    <div class="d-flex flex-wrap">
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/brasno-topaz-mel-klasika-tip-500-1-kg-image_5f34ff22a427c_1280x1280.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/blat.png" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/topazKlasik.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/sladkar.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/blat.png" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="m-4">Продукти на промоционални цени</h3>
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/brasno-topaz-mel-klasika-tip-500-1-kg-image_5f34ff22a427c_1280x1280.png" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/blat.png" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/topazKlasik.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/sladkar.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./images/products/flour/blat.png" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <h4 class="card-title">Брашно за блатове</h4>
+                        <p class="card-text "><h5 class="price">9,99 лв</h5></p>
+                        <p class="card-text text-muted price">0.40 лв/кг</p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

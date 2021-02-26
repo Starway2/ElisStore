@@ -7,45 +7,64 @@
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
 
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
-    <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+<body class="bg-white">
+    <header class="container p-0">
+        <nav class="navbar navbar-expand-sm navbar-light bg-success border-0 box-shadow p-0">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                <div class="navbar-collapse collapse">
+                    <div class="d-sm-flex flex-sm-row flex-wrap flex-grow-1 justify-content-between  text-center">
+                        <ul class="navbar-nav d-sm-flex flex-row flex-sm-wrap pb-2 c-nav">
+                            <li class="nav-item me-2">
+                                <a class="nav-link text-white fw-bold nav-btn" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a class="nav-link text-white fw-bold nav-btn ju" asp-area="" asp-controller="Home" asp-action="Index">Продукти</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a class="nav-link text-white fw-bold nav-btn" asp-area="" asp-controller="Home" asp-action="Index">Промоции</a>
+                            </li>
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
-    
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
+
+    <div class="advertise">
+
+    </div>
+
+    <div class="container p-0">
         <main role="main" class="pb-3">
+            <div class="container">
+            </div>
             @this.RenderBody()
         </main>
+
+        <partial name="_CookieConsentPartial" />
     </div>
-    
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+    <footer class="border-top footer text-muted bg-light">
+        <div class="text-center container my-2 p-0">
+            <div class="d-flex flex-wrap align-content-center flex-grow-1 justify-content-center justify-content-sm-between">
+                <ul class="d-flex flex-row flex-wrap m-0 p-0">
+                    <li><a href="#" class="text-black-50">Общи условия</a></li>
+                    <li><a href="#" class="text-black-50">Често задавани въпроси</a></li>
+                    <li><a href="#" class="text-black-50">Контакти</a></li>
+                </ul>
+                <ul class="d-flex flex-row align-middle p-0 m-0">
+                    <li><a href="#" class="text-black-50"><i class="fab fa-facebook-square fa-2x align-middle fah"></i></a></li>
+                    <li><a href="#" class="text-black-50"><i class="fab fa-instagram fa-2x align-middle fah"></i></a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 
@@ -54,6 +73,7 @@
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script src="~/lib/font-awesome/js/all.min.js" asp-append-version="true"></script>
     @this.RenderSection("Scripts", required: false)
 </body>
 </html>

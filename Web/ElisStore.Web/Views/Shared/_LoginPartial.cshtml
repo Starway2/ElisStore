@@ -4,7 +4,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
+<ul class="navbar-nav d-sm-flex flex-wrap flex-row pb-2 align-self-sm-end">
     @if (this.SignInManager.IsSignedIn(this.User))
     {
         <li class="nav-item">
@@ -24,11 +24,18 @@
     }
     else
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <li>
+            
+                    <div class="d-inline-block align-top mt-0 pb-0 align-self-end">
+                        <input type="text" placeholder="търсене" class="form-control d-inline-block m-0 w-75 search-box" />
+                        <a class="nav-link text-white fw-bold nav-btn d-inline-block p-2" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-search"></i></a>
+                    </div>
+        </li>
+        <li class="nav-item me-2">
+            <a class="nav-link text-white fw-bold nav-btn" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link text-white fw-bold nav-btn" asp-area="Identity" asp-page="/Account/Login">Вход</a>
         </li>
     }
 </ul>
