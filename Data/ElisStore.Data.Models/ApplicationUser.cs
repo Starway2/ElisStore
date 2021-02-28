@@ -1,5 +1,4 @@
-﻿// ReSharper disable VirtualMemberCallInConstructor
-namespace ElisStore.Data.Models
+﻿namespace ElisStore.Data.Models
 {
     using System;
     using System.Collections.Generic;
@@ -33,5 +32,7 @@ namespace ElisStore.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<Product> ProductsBought { get; set; }
     }
 }
