@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElisStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210227164314_AddProductAndCategory")]
-    partial class AddProductAndCategory
+    [Migration("20210301190310_AddProductsAndCategories")]
+    partial class AddProductsAndCategories
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -186,7 +186,7 @@ namespace ElisStore.Data.Migrations
 
                     b.HasIndex("IsDeleted");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("ElisStore.Data.Models.Product", b =>
@@ -233,7 +233,7 @@ namespace ElisStore.Data.Migrations
 
                     b.HasIndex("IsDeleted");
 
-                    b.ToTable("Product");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("ElisStore.Data.Models.Setting", b =>

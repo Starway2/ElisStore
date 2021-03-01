@@ -4,12 +4,12 @@
 
     using Microsoft.EntityFrameworkCore.Migrations;
 
-    public partial class AddProductAndCategory : Migration
+    public partial class AddProductsAndCategories : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -23,11 +23,11 @@
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Product",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -45,9 +45,9 @@
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Product_AspNetUsers_ApplicationUserId",
+                        name: "FK_Products_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -65,22 +65,22 @@
                 {
                     table.PrimaryKey("PK_CategoryProduct", x => new { x.CategoriesId, x.ProductsId });
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Category_CategoriesId",
+                        name: "FK_CategoryProduct_Categories_CategoriesId",
                         column: x => x.CategoriesId,
-                        principalTable: "Category",
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Product_ProductsId",
+                        name: "FK_CategoryProduct_Products_ProductsId",
                         column: x => x.ProductsId,
-                        principalTable: "Product",
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Category_IsDeleted",
-                table: "Category",
+                name: "IX_Categories_IsDeleted",
+                table: "Categories",
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
@@ -89,13 +89,13 @@
                 column: "ProductsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Product_ApplicationUserId",
-                table: "Product",
+                name: "IX_Products_ApplicationUserId",
+                table: "Products",
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Product_IsDeleted",
-                table: "Product",
+                name: "IX_Products_IsDeleted",
+                table: "Products",
                 column: "IsDeleted");
         }
 
@@ -105,10 +105,10 @@
                 name: "CategoryProduct");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "Products");
         }
     }
 }
