@@ -46,7 +46,7 @@
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Потребителското име е задължително.")]
             [Display(Name = "Потребителско име")]
             public string UserName { get; set; }
 
@@ -55,8 +55,8 @@
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "Паролата трябва да съдържа поне * симбола.")]
+            [Required(ErrorMessage = "Паролата е задължителна")]
+            [StringLength(100, ErrorMessage = "Паролата трябва да съдържа поне {2} символа.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Парола")]
             public string Password { get; set; }
@@ -108,7 +108,15 @@
 
                 foreach (var error in result.Errors)
                 {
-                    this.ModelState.AddModelError(string.Empty, error.Description);
+                    if (error.Code == "DuplicateUserName")
+                    {
+                        error.Description = "Потребителското име е заето";
+                    }
+                    if(error.Code == "DuplicateEmail")
+                    {
+                        error.Description = "Този email вече е зает";
+                    }
+                        this.ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
 
