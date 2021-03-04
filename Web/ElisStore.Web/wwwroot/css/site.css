@@ -6,6 +6,12 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+@media (hover: none) {
+    a:hover {
+        color: inherit;
+    }
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -121,4 +127,14 @@ footer ul {
 .form-control:focus {
     border-color: #198754;
     box-shadow: inset 0 1px 1px rgba(52,58,64, 0.075), 0 0 8px rgba(52,58,64, 0.8);
+}
+.sum ul{
+    padding: 0;
+}
+.sum ul li::marker{
+    display: none;
+    content: "";
+}
+.navbar-toggler:focus{
+    box-shadow: none;
 }
