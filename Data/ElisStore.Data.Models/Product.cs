@@ -7,6 +7,11 @@
 
     public class Product : BaseDeletableModel<int>
     {
+        public Product()
+        {
+            this.Categories = new HashSet<Category>();
+        }
+
         [Required]
         public string Name { get; set; }
 
@@ -14,7 +19,7 @@
 
         public string ImageUrl { get; set; }
 
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         public double Weight { get; set; }
 

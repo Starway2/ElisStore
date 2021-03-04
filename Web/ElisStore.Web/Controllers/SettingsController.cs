@@ -6,6 +6,7 @@
     using ElisStore.Data.Common.Repositories;
     using ElisStore.Data.Models;
     using ElisStore.Services.Data;
+    using ElisStore.Services.Messaging;
     using ElisStore.Web.ViewModels.Settings;
 
     using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,13 @@
         private readonly ISettingsService settingsService;
 
         private readonly IDeletableEntityRepository<Setting> repository;
+        private readonly IEmailSender emailSender;
 
-        public SettingsController(ISettingsService settingsService, IDeletableEntityRepository<Setting> repository)
+        public SettingsController(ISettingsService settingsService, IDeletableEntityRepository<Setting> repository, IEmailSender emailSender)
         {
             this.settingsService = settingsService;
             this.repository = repository;
+            this.emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -31,6 +34,8 @@
 
         public async Task<IActionResult> InsertSetting()
         {
+            await this.emailSender.SendEmailAsync("pesho@elis", "paco", "plamentrakiiski2@abv.bg", "test", "NONE");
+
             var random = new Random();
             var setting = new Setting { Name = $"Name_{random.Next()}", Value = $"Value_{random.Next()}" };
 
