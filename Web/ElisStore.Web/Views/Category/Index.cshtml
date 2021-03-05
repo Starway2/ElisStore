@@ -1,4 +1,20 @@
-﻿@model ElisStore.Web.ViewModels.Category.CategoryViewModel;
+﻿@model ElisStore.Web.ViewModels.Category.ListCategoryViewModel;
 @{
-    this.ViewData["Title"] = Model.Name;
+    this.ViewData["Title"] = "Продукти";
+}
+
+@{
+    foreach (var category in Model.Categories)
+    {
+        <h1 class="text-danger">@category.Name</h1>
+        foreach (var product in category.Products)
+        {
+            <h3>Продукт: "@product.Name"</h3>
+            <h5>Описание: @product.Description</h5>
+            <h4>Цена: @product.Price лв</h4>
+            <h6>Количество: @product.Weight кг</h6>
+        <hr />
+        }
+
+    }
 }

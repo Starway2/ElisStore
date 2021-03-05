@@ -1,5 +1,6 @@
 ﻿namespace ElisStore.Web.Controllers
 {
+    using System.Linq;
     using System.Threading.Tasks;
 
     using ElisStore.Common;
@@ -19,7 +20,9 @@
 
         public IActionResult Index()
         {
-            return this.View();
+            var data = this.categoryService.GetAll<CategoryViewModel>().ToList();
+            ListCategoryViewModel categories = new ListCategoryViewModel() { Categories = data };
+            return this.View(categories);
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
@@ -55,6 +58,7 @@
             {
                 return this.View(model);
             }
+
             return this.View();
         }
 

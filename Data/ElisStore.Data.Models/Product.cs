@@ -7,10 +7,6 @@
 
     public class Product : BaseDeletableModel<int>
     {
-        public Product()
-        {
-            this.Categories = new HashSet<Category>();
-        }
 
         [Required]
         public string Name { get; set; }
@@ -23,6 +19,8 @@
 
         public double Weight { get; set; }
 
-        public ICollection<Category> Categories { get; set; }
+        public int CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
     }
 }
