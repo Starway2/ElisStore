@@ -6,6 +6,8 @@
     {
         ICollection<T> GetAll<T>();
 
-        ICollection<T> GetById<T>(int categoryId);
+        T GetById<T>(int Id);
+
+        T GetByName<T>(string name);
     }
 }

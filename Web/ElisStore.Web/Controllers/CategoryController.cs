@@ -18,10 +18,23 @@
             this.categoryService = categoryService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string name)
+        {
+            var viewModel = this.categoryService.GetByName<CategoryViewModel>(name);
+
+            if (viewModel == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult All()
         {
             var data = this.categoryService.GetAll<CategoryViewModel>().ToList();
             ListCategoryViewModel categories = new ListCategoryViewModel() { Categories = data };
+
             return this.View(categories);
         }
 

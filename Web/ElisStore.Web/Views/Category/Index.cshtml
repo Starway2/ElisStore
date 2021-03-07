@@ -1,20 +1,22 @@
-﻿@model ElisStore.Web.ViewModels.Category.ListCategoryViewModel;
-@{
-    this.ViewData["Title"] = "Продукти";
-}
-
-@{
-    foreach (var category in Model.Categories)
-    {
-        <h1 class="text-danger">@category.Name</h1>
-        foreach (var product in category.Products)
+﻿@model ElisStore.Web.ViewModels.Category.CategoryViewModel
+<div class="container text-center">
+    <h1 class="text-danger">@Model.Name</h1>
+    <div class="row row-cols-md-5 row-cols-1">
+        @foreach (var product in Model.Products)
         {
-            <h3>Продукт: "@product.Name"</h3>
-            <h5>Описание: @product.Description</h5>
-            <h4>Цена: @product.Price лв</h4>
-            <h6>Количество: @product.Weight кг</h6>
-        <hr />
+            <div class="col col-sm-12">
+                <div class="card border-white flex-sm-row flex-md-column">
+                    <div>
+                        <img src="../images/image-not-found.png" class="card-img-top ">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text d-inline-block text-white bg-secondary fw-bold product-weight">@product.Weight <span>кг</span></p>
+                        <p class="card-text product-name">@product.Name</p>
+                        <p class="card-text product-price">@product.Price<span>лв.</span></p>
+                        <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
+                    </div>
+                </div>
+            </div>
         }
-
-    }
-}
+    </div>
+</div>

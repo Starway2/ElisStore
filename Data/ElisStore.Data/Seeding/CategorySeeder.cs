@@ -20,7 +20,6 @@
             await dbContext.Categories.AddAsync(new Category() { Name = "Сирена" });
             await dbContext.Categories.AddAsync(new Category() { Name = "Деликатеси" });
             await dbContext.Categories.AddAsync(new Category() { Name = "Салами" });
-
         }
     }
 }

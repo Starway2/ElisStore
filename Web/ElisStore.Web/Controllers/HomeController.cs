@@ -1,16 +1,27 @@
 ﻿namespace ElisStore.Web.Controllers
 {
     using System.Diagnostics;
+    using System.Linq;
 
+    using ElisStore.Services.Data;
     using ElisStore.Web.ViewModels;
-
+    using ElisStore.Web.ViewModels.Category;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : Controller
     {
+        private readonly ICategoryService categoryService;
+
+        public HomeController(ICategoryService categoryService)
+        {
+            this.categoryService = categoryService;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var data = this.categoryService.GetAll<CategoryViewModel>().ToList();
+            ListCategoryViewModel categories = new ListCategoryViewModel() { Categories = data };
+            return this.View(categories);
         }
 
         public IActionResult Privacy()

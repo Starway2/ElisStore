@@ -20,13 +20,16 @@
 
         public ICollection<T> GetAll<T>() => this.repository.All().To<T>().ToList();
 
-        public ICollection<T> GetById<T>(int categoryId) => this.repository.All().Where(x => x.Id == categoryId).To<T>().ToList();
+        public T GetById<T>(int Id) => this.repository.All().Where(x => x.Id == Id).To<T>().FirstOrDefault();
 
         public async Task<Category> Create<T>(string name, string description)
         {
             var exist = this.repository.All().Where(x => x.Name == name).FirstOrDefault();
 
-            if (exist != null) return exist;
+            if (exist != null)
+            {
+                return exist;
+            }
 
             var category = new Category() { Name = name, Description = description };
 
@@ -47,5 +50,7 @@
             this.repository.Delete(category);
             await this.repository.SaveChangesAsync();
         }
+
+        public T GetByName<T>(string name) => this.repository.All().Where(x => x.Name == name).To<T>().FirstOrDefault();
     }
 }
