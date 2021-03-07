@@ -20,7 +20,7 @@
 
         public ICollection<T> GetAll<T>() => this.repository.All().To<T>().ToList();
 
-        public T GetById<T>(int Id) => this.repository.All().Where(x => x.Id == Id).To<T>().FirstOrDefault();
+        public T GetById<T>(int id) => this.repository.All().Where(x => x.Id == id).To<T>().FirstOrDefault();
 
         public async Task<Category> Create<T>(string name, string description)
         {

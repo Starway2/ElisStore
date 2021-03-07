@@ -6,7 +6,7 @@
     {
         ICollection<T> GetAll<T>();
 
-        T GetById<T>(int Id);
+        T GetById<T>(int id);
 
         T GetByName<T>(string name);
     }

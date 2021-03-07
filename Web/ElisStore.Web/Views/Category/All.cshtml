@@ -1,4 +1,4 @@
-﻿@model ElisStore.Web.ViewModels.Category.ListCategoryViewModel
+﻿@model ElisStore.Web.ViewModels.Categories.ListCategoryViewModel
 @{
     var counter = 1;
     this.ViewData["Title"] = "Продукти";
@@ -10,6 +10,7 @@
         <div class="row row-cols-md-5 row-cols-1">
             @foreach (var product in category.Products)
             {
+                if (counter == 5) break;
                 <div class="col col-sm-12">
                     <div class="card border-white flex-sm-row flex-md-column">
                         <div>
@@ -23,6 +24,7 @@
                         </div>
                     </div>
                 </div>
+                counter++;
             }
         </div>
         <a class="btn btn-success btn-sm m-2" asp-area="" asp-controller="Category" asp-action="Index" asp-route-name="@category.Name">Покажи всички</a>

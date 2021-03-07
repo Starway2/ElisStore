@@ -4,7 +4,7 @@
     <ul class="dropdown-menu position-absolute bg-success border-0 p-1 pt-0 mt-2" aria-labelledby="dropdownProducts">
         <li><a class="dropdown-item text-white fw-bold" asp-area="" asp-controller="Category" asp-action="All">Всички категории</a></li>
 
-        @foreach (var category in service.GetAll<ElisStore.Web.ViewModels.Category.CategoryViewModel>())
+        @foreach (var category in service.GetAll<ElisStore.Web.ViewModels.Categories.CategoryViewModel>())
         {
 <li class=""><a class="dropdown-item text-white fw-bold" asp-area="" asp-controller="Category" asp-action="Index" asp-route-name="@category.Name">@category.Name</a></li>
 }

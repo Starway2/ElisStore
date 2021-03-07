@@ -1,4 +1,4 @@
-﻿namespace ElisStore.Web.ViewModels.Category
+﻿namespace ElisStore.Web.ViewModels.Categories
 {
     using System.Collections.Generic;
 

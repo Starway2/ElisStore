@@ -1,11 +1,11 @@
-﻿namespace ElisStore.Web.ViewModels.Category
+﻿namespace ElisStore.Web.ViewModels.Categories
 {
     using System.Collections.Generic;
 
     using ElisStore.Data.Models;
     using ElisStore.Services.Mapping;
 
-    public class CategoryViewModel : IMapFrom<ElisStore.Data.Models.Category>
+    public class CategoryViewModel : IMapFrom<Category>
     {
         public CategoryViewModel()
         {
