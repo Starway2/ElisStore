@@ -13,12 +13,10 @@
     public class ProductsService : IProductsService
     {
         private readonly IDeletableEntityRepository<Product> repository;
-        private readonly ILogger logger;
 
-        public ProductsService(IDeletableEntityRepository<Product> repository, ILogger logger)
+        public ProductsService(IDeletableEntityRepository<Product> repository)
         {
             this.repository = repository;
-            this.logger = logger;
         }
 
         public ICollection<T> GetAll<T>() => this.repository.All().To<T>().ToList();
@@ -43,7 +41,6 @@
 
             if (product == null)
             {
-                this.logger.LogWarning("Trying to delete non existing product...");
                 return;
             }
 
@@ -56,7 +53,6 @@
             var product = this.repository.All().Where(x => x.Id == productId).FirstOrDefault();
             if (product == null)
             {
-                this.logger.LogWarning("Trying to update non existing product...");
                 return;
             }
 
