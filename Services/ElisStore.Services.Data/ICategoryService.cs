@@ -8,8 +8,8 @@
     {
         Task<Category> Create<T>(string name, string description);
 
-        Task Update(Category category);
+        Task Update(int categoryId);
 
-        Task Delete(Category category);
+        Task Delete(int categoryId);
     }
 }

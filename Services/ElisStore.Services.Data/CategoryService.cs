@@ -32,14 +32,16 @@
             return category;
         }
 
-        public async Task Update(Category category)
+        public async Task Update(int categoryId)
         {
+            var category = this.repository.All().Where(x => x.Id == categoryId).FirstOrDefault();
             this.repository.Update(category);
             await this.repository.SaveChangesAsync();
         }
 
-        public async Task Delete(Category category)
+        public async Task Delete(int categoryId)
         {
+            var category = this.repository.All().Where(x => x.Id == categoryId).FirstOrDefault();
             this.repository.Delete(category);
             await this.repository.SaveChangesAsync();
         }
