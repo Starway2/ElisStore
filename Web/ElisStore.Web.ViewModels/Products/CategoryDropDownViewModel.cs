@@ -1,8 +1,9 @@
 ﻿namespace ElisStore.Web.ViewModels.Products
 {
+    using ElisStore.Data.Models;
     using ElisStore.Services.Mapping;
 
-    public class CategoryDropDownViewModel : IMapFrom<ElisStore.Data.Models.Category>
+    public class CategoryDropDownViewModel : IMapFrom<Category>
     {
         public int Id { get; set; }
 

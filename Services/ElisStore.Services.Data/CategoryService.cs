@@ -24,13 +24,6 @@
 
         public async Task<Category> Create<T>(string name, string description)
         {
-            var exist = this.repository.All().Where(x => x.Name == name).FirstOrDefault();
-
-            if (exist != null)
-            {
-                return exist;
-            }
-
             var category = new Category() { Name = name, Description = description };
 
             await this.repository.AddAsync(category);

@@ -1,11 +1,9 @@
 ﻿namespace ElisStore.Web.Controllers
 {
     using System.Diagnostics;
-    using System.Linq;
 
     using ElisStore.Services.Data;
     using ElisStore.Web.ViewModels;
-    using ElisStore.Web.ViewModels.Category;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : Controller
@@ -19,9 +17,7 @@
 
         public IActionResult Index()
         {
-            var data = this.categoryService.GetAll<CategoryViewModel>().ToList();
-            ListCategoryViewModel categories = new ListCategoryViewModel() { Categories = data };
-            return this.View(categories);
+            return this.View();
         }
 
         public IActionResult Privacy()

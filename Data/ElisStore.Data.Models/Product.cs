@@ -7,7 +7,6 @@
 
     public class Product : BaseDeletableModel<int>
     {
-
         [Required]
         public string Name { get; set; }
 

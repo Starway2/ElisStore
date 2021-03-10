@@ -5,7 +5,7 @@
 
     using ElisStore.Common;
     using ElisStore.Services.Data;
-    using ElisStore.Web.ViewModels.Category;
+    using ElisStore.Web.ViewModels.Categories;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
@@ -45,8 +45,18 @@
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+        [HttpPost]
         public async Task<IActionResult> Create(CategoryInputModel model)
         {
+
+            var exist = this.categoryService.GetByName<CategoryViewModel>(model.Name);
+
+            if (exist != null)
+            {
+                this.ModelState.AddModelError("Name", "Вече съществува такава категория.");
+                return this.View(model);
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);
@@ -54,7 +64,7 @@
 
             var category = await this.categoryService.Create<CategoryViewModel>(model.Name, model.Name);
 
-            return this.View(category);
+            return this.RedirectToAction(nameof(this.Index), new { name = category.Name });
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
