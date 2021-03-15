@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
@@ -21,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\ElisStore.Data.Common\ElisStore.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\ElisStore.Data.Models\ElisStore.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\ElisStore.Web.ViewModels\ElisStore.Web.ViewModels.csproj" />
     <ProjectReference Include="..\ElisStore.Services.Mapping\ElisStore.Services.Mapping.csproj" />
   </ItemGroup>
 

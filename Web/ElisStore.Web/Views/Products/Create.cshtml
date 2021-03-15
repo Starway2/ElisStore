@@ -1,0 +1,48 @@
+﻿@model ElisStore.Web.ViewModels.Products.ProductInputModel
+@{
+    this.ViewData["Title"] = "Създаване на нов продукт";
+    var categories = Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
+}
+<div class="row">
+    <div class="col-md-6 col-9 container text-center">
+        <section>
+            <form method="post" enctype="multipart/form-data" asp-action="Create">
+                <h1>Създаване на нов продукт</h1>
+                <hr />
+                <div class="form-group m-2">
+                    <label asp-for="Name" class="fs-4"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group m-2">
+                    <label asp-for="Description" class="fs-4"></label>
+                    <textarea rows="3" style="resize: none;" asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group m-2">
+                    <label asp-for="Image" class="fs-4"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group m-2">
+                    <label asp-for="Price" class=" fs-4"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group m-2">
+                    <label asp-for="Weight" class=" fs-4"></label>
+                    <input asp-for="Weight" class="form-control" />
+                    <span asp-validation-for="Weight" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="CategoryId"></label>
+                    <select asp-for="CategoryId" asp-items="categories" class="form-control">
+                        <option selected></option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-sm btn-outline-success m-4">Създаване</button>
+            </form>
+        </section>
+    </div>
+</div>

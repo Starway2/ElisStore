@@ -7,7 +7,7 @@
 
     public interface IProductsService : IBaseService
     {
-        Task<Product> Create<T>(ProductInputModel model);
+        Task<Product> Create(ProductInputModel model);
 
         Task Update(int productId);
 
