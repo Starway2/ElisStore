@@ -1,1 +1,25 @@
-﻿
+﻿@model ElisStore.Web.ViewModels.Products.ProductViewModel
+@{
+    this.ViewData["Title"] = Model.Name;
+}
+<div class="container w-100 text-center">
+    <h3>@Model.Name</h3>
+    <hr class="w-75" />
+    <div class="row">
+        <div class="col-12">
+            <img src="@Model.ImageUrl" alt="@Model.Name" class="product-image" />
+        </div>
+    </div>
+    <div class="row text-start bg-light border">
+        <div class="container text-center col-sm-8 col-md-3">
+            <form asp-controller="Products" asp-action="AddToCart" method="post">
+                <label class="d-inline-block">Количество</label>
+                <input class="d-inline-block form-control" type="number" min="1" />
+                <button type="submit" class="btn btn-outline-success m-3">Добави в количката</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <p>@Model.Description</p>
+    </div>
+</div>

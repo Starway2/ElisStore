@@ -11,7 +11,7 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text d-inline-block text-white bg-secondary fw-bold product-weight">@product.Weight <span>кг</span></p>
-                        <p class="card-text product-name">@product.Name</p>
+                        <p class="card-text product-name"><a asp-controller="Products" asp-action="Index" asp-route-name="@product.Name">@product.Name</a></p>
                         <p class="card-text product-price">@product.Price<span>лв.</span></p>
                         <p class="card-text p-0"><a href="#" class="btn btn-sm btn-outline-success">Добави в количката</a></p>
                     </div>

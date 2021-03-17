@@ -19,9 +19,16 @@
             this.categoryService = categoryService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string name)
         {
-            return this.View();
+            var product = this.productsService.GetByName<ProductViewModel>(name);
+
+            if (product == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.View(product);
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
