@@ -1,9 +1,11 @@
 ﻿namespace ElisStore.Web.Controllers
 {
+    using System.Linq;
     using System.Threading.Tasks;
 
     using ElisStore.Common;
     using ElisStore.Services.Data;
+    using ElisStore.Web.ViewModels.Categories;
     using ElisStore.Web.ViewModels.Products;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
@@ -21,14 +23,14 @@
 
         public IActionResult Index(string name)
         {
-            var product = this.productsService.GetByName<ProductViewModel>(name);
+            var viewModel = this.productsService.GetByName<ProductViewModel>(name);
 
-            if (product == null)
+            if (viewModel == null)
             {
-                return this.NotFound();
+                return this.RedirectToAction("All", "Category");
             }
 
-            return this.View(product);
+            return this.View(viewModel);
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]

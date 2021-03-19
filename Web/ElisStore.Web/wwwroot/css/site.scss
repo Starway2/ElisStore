@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+footer {
+    ul {
+        display: block;
+        list-style-type: none;
+        li {
+            display: inline-block;
+            margin: 0px 10px;
+        }
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    background-color: #ebebeb !important;
+    &-text {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+nav {
+    border-radius: 0px 0px 0px 0px;
+}
+
+.nav-btn {
+    border-radius: 0px 0px 5px 5px;
+    &:hover {
+        background-color: #f8f9fa;
+        color: black !important;
+        border-radius: 0px 0px 5px 5px;
+        transition: color 0.4s, background-color 0.4s;
+    }
+}
+
+.ju {
+    justify-self: left;
+}
+
+.search-box {
+    border-radius: 0 0 5px 5px !important;
+    border: none !important;
+}
+
+.carousel-item img {
+    max-height: 400px !important;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.fah:hover {
+    color: black !important;
+    transition: color 0.4s;
+}
+
+.form-control:focus {
+    border-color: #198754;
+    box-shadow: inset 0 1px 1px rgba(52, 58, 64, 0.075), 0 0 8px rgba(52, 58, 64, 0.8);
+}
+
+.card {
+    border-radius: 0 !important;
+    margin: 0 15px;
+    &-img-top {
+        height: 154px;
+        max-width: 154px;
+    }
+    &:hover {
+        background-color: rgba(242, 242, 242, 0.30);
+        border: 1px solid rgba(0, 0, 0, 0.20) !important;
+        transition: all ease-in-out 0.5s;
+    }
+}
+
+.price {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+.c-nav {
+    justify-content: space-between;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.dropdown ul {
+    border-radius: 0;
+}
+
+.dropdown-item:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+.product {
+    &-weight {
+        background-color: lightgray;
+        border-radius: 9px;
+        padding: 1px 8px;
+    }
+    &-price {
+        font-size: 28px;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif !important;
+    }
+    &-price {
+        span {
+            padding-left: 5px;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Roboto', sans-serif !important;
+        }
+    }
+    &-name {
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif !important;
+    }
+    &-image {
+        max-width: 350px;
+        height: auto;
+    }
+}

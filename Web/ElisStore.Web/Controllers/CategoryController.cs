@@ -18,13 +18,13 @@
             this.categoryService = categoryService;
         }
 
-        public IActionResult Index(string name)
+        public IActionResult Index(int id)
         {
-            var viewModel = this.categoryService.GetByName<CategoryViewModel>(name);
+            var viewModel = this.categoryService.GetById<CategoryViewModel>(id);
 
             if (viewModel == null)
             {
-                return this.NotFound();
+                return this.RedirectToAction(nameof(this.All));
             }
 
             return this.View(viewModel);
