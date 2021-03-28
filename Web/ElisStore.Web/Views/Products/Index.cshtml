@@ -4,22 +4,22 @@
 }
 <div class="container w-100 text-center">
     <h3>@Model.Name</h3>
-    <hr class="w-75" />
+    <hr />
     <div class="row">
-        <div class="col-12">
-            <img src="@Model.ImageUrl" alt="@Model.Name" class="product-image" />
+        <div class="product-description text-start col-4 border-end">
+            <p>@Model.Description</p>
         </div>
-    </div>
-    <div class="row text-start bg-light border">
-        <div class="container text-center col-sm-8 col-md-3">
+        <div class="product-details text-center col-4 align-bottom align-self-center">
+            <p>За района на Велико Търново - доставка до края на деня</p>
+            <p>За райони извън Велико Търново - доставка на другият ден</p>
             <form asp-controller="Products" asp-action="AddToCart" method="post">
                 <label class="d-inline-block">Количество</label>
                 <input class="d-inline-block form-control" type="number" min="1" />
                 <button type="submit" class="btn btn-outline-success m-3">Добави в количката</button>
             </form>
         </div>
-    </div>
-    <div class="row">
-        <p>@Model.Description</p>
+        <div class="col-4 text-end border-start">
+            <img src="@Model.ImageUrl" alt="@Model.Name" height="400" />
+        </div>
     </div>
 </div>

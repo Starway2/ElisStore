@@ -1,12 +1,1 @@
-﻿@inject ElisStore.Services.Data.ICategoryService service; 
-<div class="dropdown">
-    <a class="nav-link text-white fw-bold nav-btn ju dropdown-toggle" id="dropdownProducts" data-bs-toggle="dropdown" aria-expanded="false" asp-area="" asp-controller="Category" asp-action="Index">Продукти</a>
-    <ul class="dropdown-menu position-absolute bg-success border-0 p-1 pt-0 mt-2" aria-labelledby="dropdownProducts">
-        <li><a class="dropdown-item text-white fw-bold" asp-area="" asp-controller="Category" asp-action="All">Всички категории</a></li>
-
-        @foreach (var category in service.GetAll<ElisStore.Web.ViewModels.Categories.CategoryViewModel>())
-        {
-<li class=""><a class="dropdown-item text-white fw-bold" asp-area="" asp-controller="Category" asp-action="Index" asp-route-id="@category.Id">@category.Name</a></li>
-}
-    </ul>
-</div>
+﻿

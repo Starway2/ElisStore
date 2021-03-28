@@ -6,33 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
 </head>
 <body class="bg-white">
-    <header class="container-xl p-0 ">
-        <nav class="navbar navbar-expand-md navbar-light bg-success border-0 box-shadow p-0">
-            <div class="w-100 px-2">
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse">
-                    <div class="d-sm-flex flex-sm-row flex-wrap flex-grow-1 justify-content-between text-center">
-                        <ul class="navbar-nav d-sm-flex flex-row flex-sm-wrap p-0 c-nav">
-                            <li class="nav-item me-2">
-                                <a class="nav-link text-white fw-bold nav-btn" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
-                            </li>
-                            <li class="nav-item me-2">
-                                <partial name="_DropdownPartial" />
-                            </li>
-                        </ul>
-                        <partial name="_LoginPartial" />
-                    </div>
-                </div>
+    <header class="container p-0 mb-2 mt-1">
+        <div class="row justify-content-between align-middle align-items-center pt-1 text-center">
+            <div class="logo col-md-auto col-sm-6 text-sm-start align-start d-inline-block">
+                <h2 class="m-0"><a href="/" class="text-decoration-none link-success">E-Elis</a></h2>
             </div>
-        </nav>
+            <div class="search-box col-3 text-sm-end text-center d-inline-block">
+                <form action="/" method="post" class="d-flex flex-row">
+                    <input type="search" placeholder="Търсене" class="form-control search-control" />
+                    <button type="submit" class="btn btn-success btn-search text-white"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <partial name="_LoginPartial" />
+        </div>
+        <partial name="_NavigationPartial" />
     </header>
 
     <div class="advertise">
@@ -41,8 +32,6 @@
 
     <div class="container-xl p-0">
         <main role="main" class="pb-3">
-            <div class="container">
-            </div>
             @this.RenderBody()
         </main>
 
@@ -68,9 +57,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/font-awesome/js/all.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
     @this.RenderSection("Scripts", required: false)
 </body>
 </html>

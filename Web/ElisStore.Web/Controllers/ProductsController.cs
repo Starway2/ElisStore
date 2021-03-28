@@ -52,7 +52,7 @@
             }
 
             var product = await this.productsService.Create(model);
-            return this.View("Index", product);
+            return this.View("Index", product.Name);
         }
     }
 }

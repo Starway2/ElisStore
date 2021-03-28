@@ -1,4 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #43bd25;
+$info: #13101c;
+$warning: #945707;
+$danger: #d62518;
+$light: #f8f9fa;
+$dark: #343a40;
+$theme-colors: ( primary: $primary,
+secondary: $secondary,
+success: $success,
+info: $info,
+warning: $warning,
+danger: $danger,
+light: $light,
+dark: $dark);
+@import "../lib/bootstrap/scss/bootstrap.scss";
 html {
     position: relative;
     min-height: 100%;
@@ -37,20 +54,6 @@ nav {
     border-radius: 0px 0px 0px 0px;
 }
 
-.nav-btn {
-    border-radius: 0px 0px 5px 5px;
-    &:hover {
-        background-color: #f8f9fa;
-        color: black !important;
-        border-radius: 0px 0px 5px 5px;
-        transition: color 0.4s, background-color 0.4s;
-    }
-}
-
-.ju {
-    justify-self: left;
-}
-
 .search-box {
     border-radius: 0 0 5px 5px !important;
     border: none !important;
@@ -86,11 +89,6 @@ button.accept-policy {
         height: 154px;
         max-width: 154px;
     }
-    &:hover {
-        background-color: rgba(242, 242, 242, 0.30);
-        border: 1px solid rgba(0, 0, 0, 0.20) !important;
-        transition: all ease-in-out 0.5s;
-    }
 }
 
 .price {
@@ -99,20 +97,14 @@ button.accept-policy {
 }
 
 .c-nav {
-    justify-content: space-between;
+    a:hover {
+        background-color: #ffffff!important;
+        color: black!important;
+    }
 }
 
 .navbar-toggler:focus {
     box-shadow: none;
-}
-
-.dropdown ul {
-    border-radius: 0;
-}
-
-.dropdown-item:hover {
-    background-color: white !important;
-    color: black !important;
 }
 
 .product {
@@ -143,4 +135,49 @@ button.accept-policy {
         max-width: 350px;
         height: auto;
     }
+}
+
+.btn {
+    &:hover {
+        box-shadow: none!important;
+    }
+    &-search {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    &-outline-success:hover {
+        color: #fff!important;
+    }
+}
+
+.search-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.logo {
+    h2 {
+        a {
+            img {
+                max-height: 80px;
+            }
+        }
+    }
+}
+
+.profile {
+    &:hover {
+        background-color: $success!important;
+        color: #fff!important;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+}
+
+#profileDropDown::after,
+#cartDropDown::after {
+    content: none;
+}
+
+.shopping-cart {
+    font-size: 1.5em;
 }

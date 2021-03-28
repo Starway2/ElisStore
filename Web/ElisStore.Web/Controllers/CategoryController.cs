@@ -32,8 +32,7 @@
 
         public IActionResult All()
         {
-            var data = this.categoryService.GetAll<CategoryViewModel>().ToList();
-            ListCategoryViewModel categories = new ListCategoryViewModel() { Categories = data };
+            var categories = new ListCategoryViewModel() { Categories = this.categoryService.GetAll<CategoryViewModel>().ToList() };
 
             return this.View(categories);
         }

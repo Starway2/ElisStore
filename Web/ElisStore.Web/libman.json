@@ -3,7 +3,7 @@
   "defaultProvider": "jsdelivr",
   "libraries": [
     {
-      "library": "jquery@3.5.1",
+      "library": "jquery@3.6.0",
       "destination": "wwwroot/lib/jquery/",
       "files": [
         "dist/jquery.min.js",
@@ -14,10 +14,18 @@
       "library": "bootstrap@5.0.0-beta2",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
-        "dist/css/bootstrap.css",
         "dist/css/bootstrap.min.css",
-        "dist/js/bootstrap.js",
-        "dist/js/bootstrap.min.js"
+        "dist/css/bootstrap.min.css.map",
+        "scss/bootstrap.scss",
+        "scss/*",
+        "scss/forms/*",
+        "scss/vendor/*",
+        "scss/helpers/*",
+        "scss/mixins/*",
+        "scss/utilities/_api.scss",
+        "dist/js/bootstrap.bundle.js",
+        "dist/js/bootstrap.bundle.min.js",
+        "dist/js/bootstrap.bundle.min.js.map"
       ]
     },
     {
@@ -37,14 +45,16 @@
       ]
     },
     {
-      "library": "font-awesome@5.15.2",
+      "library": "font-awesome@5.15.3",
       "provider": "cdnjs",
       "destination": "wwwroot/lib/font-awesome",
       "files": [
         "css/all.css",
         "css/all.min.css",
         "js/all.js",
-        "js/all.min.js"
+        "js/all.min.js",
+        "webfonts/fa-solid-900.woff2",
+        "webfonts/fa-brands-400.woff2"
       ]
     }
   ]

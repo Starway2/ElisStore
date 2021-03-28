@@ -33,6 +33,7 @@
         public async Task<Product> Create(ProductInputModel model)
         {
             string uniqueImageName = string.Empty;
+
             if (model.Image == null)
             {
                 uniqueImageName = "./images/image-not-found.png";

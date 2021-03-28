@@ -4,27 +4,35 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav d-sm-flex flex-wrap flex-row pb-2 align-self-sm-end justify-content-between">
-    <li>
-        <input type="text" placeholder="търсене" class="form-control d-inline-block m-0 w-75 search-box" />
-        <a class="nav-link text-white fw-bold nav-btn d-inline-block p-2" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-search"></i></a>
-    </li>
+<div class="text-md-end text-sm-center col-md-auto col-sm-12 d-inline-block">
     @if (this.SignInManager.IsSignedIn(this.User))
     {
-<li class="nav-item"><a class="nav-link text-white fw-bold nav-btn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@this.User.Identity.Name</a></li>
- if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
-{
+        <div>
+            <a class="btn text-decoration-none dropdown-toggle p-0 me-3" role="button" id="cartDropDown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-shopping-cart shopping-cart align-middle text-success"></i></a>
+            <div class="dropdown-menu dropdown-menu-end text-center p-2" aria-labelledby="cartDropDown">
+                
+            </div>
 
-<li class="nav-item"><a class="nav-link text-white fw-bold nav-btn" asp-area="Administration" asp-controller="Dashboard" asp-action="Index" title="Admin">Админ</a></li> }
-<li class="nav-item">
-    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
-        <button type="submit" class="nav-link btn btn-link text-dark nav-btn fw-bold text-white">Изход</button>
-    </form>
-</li>
- }
-else
-{
-<li class="nav-item me-2"><a class="nav-link text-white fw-bold nav-btn" asp-area="Identity" asp-page="/Account/Register">Регистрация</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold nav-btn" asp-area="Identity" asp-page="/Account/Login">Вход</a></li>
-}
-</ul>
+            <a class="btn text-decoration-none dropdown-toggle p-0" role="button" id="profileDropDown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle fa-2x align-middle text-success"></i></a>
+            <div class="dropdown-menu dropdown-menu-end text-center p-2" aria-labelledby="profileDropDown">
+                <a class="dropdown-item profile py-1" asp-area="Identity" asp-controller="Account" asp-action="Manage">Профил</a>
+                <hr class="my-1" />
+                <a href="#" class="dropdown-item profile py-1">Настройки</a>
+                <hr class="my-1" />
+                @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                {
+                    <a class="dropdown-item profile py-1" asp-area="Administration" asp-controller="Dashboard" asp-action="Index" title="Admin">Админ</a>
+                }
+                <hr class="my-1"/>
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
+                    <button type="submit" class="btn btn-outline-danger btn-sm p-1">Изход</button>
+                </form>
+            </div>
+        </div>
+    }
+    else
+    {
+        <a class="btn btn-outline-success btn-sm nav-link p-1 d-inline-block" asp-area="Identity" asp-page="/Account/Login">Вход</a>
+        <a class="btn btn-outline-success btn-sm nav-link p-1 d-inline-block" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
+    }
+</div>
